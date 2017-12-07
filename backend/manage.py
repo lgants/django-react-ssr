@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
+
 import dotenv
 
 if __name__ == "__main__":
@@ -21,5 +22,6 @@ if __name__ == "__main__":
                 "available on your PYTHONPATH environment variable? Did you "
                 "forget to activate a virtual environment?"
             )
+            django.setup()
         raise
     execute_from_command_line(sys.argv)
