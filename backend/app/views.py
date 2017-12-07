@@ -6,7 +6,7 @@ from react.render import render_component
 
 comments = []
 
-def index():
+def index(request):
     rendered = render_component(
         os.path.join(os.getcwd(), 'static', 'js', 'CommentBox.jsx'),
         {
@@ -16,4 +16,4 @@ def index():
         to_static_markup=True,
     )
 
-return render_template('index.html', rendered=rendered)
+    return render_template('index.html', rendered=rendered)
