@@ -30,6 +30,7 @@ var server = http.Server(app);
 app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
+  
 	res.end('React render server');
 });
 
