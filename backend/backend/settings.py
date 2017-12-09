@@ -36,8 +36,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'react',
     'app',
 ]
+
+REACT = {
+	'RENDER': not DEBUG,
+    'RENDER_URL': 'http://127.0.0.1:8001/render',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -8,6 +8,7 @@ import os
 comments = []
 
 def index(request):
+    print(request)
     rendered = render_component(
         os.path.join(os.getcwd(), '..', 'frontend', 'public','bundle.js'),
         {
