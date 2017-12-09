@@ -7,10 +7,11 @@ import os
 
 
 # os.path.join(os.getcwd(), '..', 'client', 'src', 'app', 'components', 'Temp.js'),
+# os.path.join(os.getcwd(), '..', 'client', 'src', 'components', 'Temp.jsx')
 def index(request):
     # os.path.join(os.getcwd(), 'app', 'static', 'Temp.jsx')
     rendered = render_component(
-        os.path.join(os.getcwd(), '..', 'client', 'src', 'components', 'Temp.jsx'),
+        os.path.join(os.getcwd(), '..', 'client', 'src', 'index.js'),
         {
             'url': '/comment/',
         },
