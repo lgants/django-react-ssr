@@ -95,10 +95,14 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # }
 
 DATABASES = {
+    'sqlite3': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
     'default': {
-        'ENGINE': os.getenv('DATABASE_DEFAULT_ENGINE'),
-        'NAME': os.getenv('DATABASE_DEFAULT_NAME'),
-        'USER': os.getenv('DATABASE_DEFAULT_USER'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'django_react_ssr',
+        'USER': 'Logan',
         'PASSWORD': os.getenv('DATABASE_DEFAULT_PASSWORD'),
         'HOST': os.getenv('DATABASE_DEFAULT_HOST'),
         'PORT': os.getenv('DATABASE_DEFAULT_PORT'),
