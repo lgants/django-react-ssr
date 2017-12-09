@@ -12,7 +12,6 @@ var argv = require('yargs')
     .help('h').alias('h', 'help')
     .strict()
     .argv;
-
 var http = require('http');
 var express = require('express');
 var bodyParser = require('body-parser');

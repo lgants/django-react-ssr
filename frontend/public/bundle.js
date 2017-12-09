@@ -2437,6 +2437,11 @@ exports.default = function () {
       'p',
       null,
       'hola'
+    ),
+    _react2.default.createElement(
+      'p',
+      null,
+      'yo'
     )
   );
 };
