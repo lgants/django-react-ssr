@@ -70,7 +70,7 @@
 "use strict";
 
 
-var argv = __webpack_require__(5).option('p', {
+var argv = __webpack_require__(1).option('p', {
 	alias: 'port',
 	description: 'Specify the server\'s port',
 	default: 9009
@@ -79,10 +79,10 @@ var argv = __webpack_require__(5).option('p', {
 	description: 'Specify the server\'s address',
 	default: '127.0.0.1'
 }).help('h').alias('h', 'help').strict().argv;
-var http = __webpack_require__(1);
-var express = __webpack_require__(2);
-var bodyParser = __webpack_require__(3);
-var reactRender = __webpack_require__(4);
+var http = __webpack_require__(2);
+var express = __webpack_require__(3);
+var bodyParser = __webpack_require__(4);
+var reactRender = __webpack_require__(5);
 
 // Ensure support for loading files that contain ES6+7 & JSX
 __webpack_require__(6);
@@ -127,31 +127,31 @@ server.listen(PORT, ADDRESS, function () {
 /* 1 */
 /***/ (function(module, exports) {
 
-module.exports = require("http");
+module.exports = require("yargs");
 
 /***/ }),
 /* 2 */
 /***/ (function(module, exports) {
 
-module.exports = require("express");
+module.exports = require("http");
 
 /***/ }),
 /* 3 */
 /***/ (function(module, exports) {
 
-module.exports = require("body-parser");
+module.exports = require("express");
 
 /***/ }),
 /* 4 */
 /***/ (function(module, exports) {
 
-module.exports = require("react-render");
+module.exports = require("body-parser");
 
 /***/ }),
 /* 5 */
 /***/ (function(module, exports) {
 
-module.exports = require("yargs");
+module.exports = require("react-render");
 
 /***/ }),
 /* 6 */
