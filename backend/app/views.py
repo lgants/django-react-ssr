@@ -3,19 +3,21 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from react.render import render_component
+from IPython import embed
 import os
 
-comments = []
 
+# os.path.join(os.getcwd(), '..', 'frontend', 'src', 'Temp.js'),
 def index(request):
-    print(request)
+    print(os.path.join(os.getcwd(), 'Temp.jsx'))
     rendered = render_component(
-        os.path.join(os.getcwd(), '..', 'frontend', 'public','bundle.js'),
+        os.path.join(os.getcwd(), 'app', 'static', 'Temp.jsx'),
         {
-            'comments': comments,
             'url': '/comment/',
         },
         to_static_markup=True,
     )
+    embed()
+    print(rendered)
 
-    return render_template('index.html', rendered=rendered)
+    return render(request, 'index.html', {'rendered': rendered})
