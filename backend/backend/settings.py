@@ -28,21 +28,28 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
-INSTALLED_APPS = [
+DEFAULT_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+
+THIRD_PARTY_APPS = [
     'react',
+]
+
+LOCAL_APPS = [
     'app',
 ]
 
+INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+
 REACT = {
-	'RENDER': not DEBUG,
-    'RENDER_URL': 'http://127.0.0.1:8001/render',
+	'RENDER': True,
+    'RENDER_URL': 'http://127.0.0.1:9009/render',
 }
 
 MIDDLEWARE = [

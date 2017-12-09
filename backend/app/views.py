@@ -9,7 +9,7 @@ import os
 
 # os.path.join(os.getcwd(), '..', 'frontend', 'src', 'Temp.js'),
 def index(request):
-    print(os.path.join(os.getcwd(), 'Temp.jsx'))
+    # print(os.path.join(os.getcwd(), 'Temp.jsx'))
     rendered = render_component(
         os.path.join(os.getcwd(), 'app', 'static', 'Temp.jsx'),
         {
@@ -17,7 +17,5 @@ def index(request):
         },
         to_static_markup=True,
     )
-    embed()
-    print(rendered)
-
+    
     return render(request, 'index.html', {'rendered': rendered})
