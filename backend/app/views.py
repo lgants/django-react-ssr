@@ -17,4 +17,5 @@ def index(request):
         to_static_markup=True,
     )
 
-    return render(request, 'index.html', {'rendered': rendered})
+    return render(
+        request, 'index.html', {'rendered': rendered})

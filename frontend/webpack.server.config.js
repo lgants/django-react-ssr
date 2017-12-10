@@ -1,6 +1,6 @@
 const path = require('path');
 const merge = require('webpack-merge');
-const baseConfig = require('./webpack.base.js');
+const baseConfig = require('./webpack.base.config.js');
 const webpackNodeExternals = require('webpack-node-externals');
 
 const config = {
@@ -12,8 +12,8 @@ const config = {
 
   // Tell webpack where to put the output file
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'build')
+    filename: "[name]-[hash].js",
+    path: path.resolve(__dirname, 'build/')
   },
 
   // Tells webpack to not bundle any libraries into output server-side bundle if that library exists inside the node modules folder, which speeds webpack by reducing bundle size

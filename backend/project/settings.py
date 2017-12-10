@@ -40,6 +40,7 @@ DEFAULT_APPS = [
 
 THIRD_PARTY_APPS = [
     'react',
+    'webpack_loader',
 ]
 
 LOCAL_APPS = [
@@ -141,4 +142,20 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, '..', 'frontend', 'public'),
+    os.path.join(os.path.dirname(__file__), 'static'),
+)
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'CACHE': not DEBUG,
+        'BUNDLE_DIR_NAME': 'public/',
+        'STATS_FILE': os.path.join(BASE_DIR, '..', 'frontend', 'webpack-stats.json'),
+        'POLL_INTERVAL': 0.1,
+        'TIMEOUT': None,
+        'IGNORE': ['.+\.hot-update.js', '.+\.map']
+    }
+}

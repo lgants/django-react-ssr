@@ -1,3 +1,7 @@
+var path = require('path');
+var webpack = require('webpack');
+var BundleTracker = require('webpack-bundle-tracker');
+
 module.exports = {
   // Tell webpack to run babel on every file it runs through
   module: {
@@ -15,5 +19,8 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new BundleTracker({filename: './webpack-stats.json'})
+  ]
 };

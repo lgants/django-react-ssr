@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "npm-run-all --parallel dev:*",
-    "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
-    "dev:client": "nodemon --watch public --exec \"node public/bundle.js\"",
-    "dev:build-server": "webpack --config webpack.server.js --watch",
-    "dev:build-client": "webpack --config webpack.client.js --watch"
+    "dev:server": "nodemon --watch build --exec \"node build/main-*\"",
+    "dev:client": "nodemon --watch public --exec \"node public/main-*\"",
+    "dev:build-server": "webpack --config webpack.server.config.js --watch",
+    "dev:build-client": "webpack --config webpack.client.config.js --watch"
   },
   "author": "",
   "license": "ISC",
@@ -16,12 +16,12 @@
     "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
     "babel-loader": "7.1.2",
+    "babel-plugin-transform-react-jsx": "^6.1.18",
     "babel-preset-env": "1.6.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-es2017": "6.24.1",
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-0": "6.24.1",
-    "babel-plugin-transform-react-jsx": "^6.1.18",
     "body-parser": "^1.14.1",
     "compression": "1.7.0",
     "express": "4.15.4",
@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "react-hot-loader": "^3.1.3",
+    "webpack-bundle-tracker": "^0.2.0",
     "webpack-dev-server": "^2.8.2"
   }
 }
