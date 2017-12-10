@@ -1,10 +1,12 @@
 var path = require('path');
 var webpack = require('webpack');
 var BundleTracker = require('webpack-bundle-tracker');
+var autoprefixer = require('autoprefixer');
 
 module.exports = {
   // Tell webpack to run babel on every file it runs through
   module: {
+    context: __dirname,
     rules: [
       {
         test: /\.js?$/,
@@ -17,7 +19,19 @@ module.exports = {
             ['env', { targets: { browsers: ['last 2 versions'] } }]
           ]
         }
-      }
+      },
+      {
+        test: /(\.css$)/,
+        loaders: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader'
+        ]
+      },
+      {
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        loader: 'url-loader?limit=100000'
+      },
     ]
   },
   plugins: [
