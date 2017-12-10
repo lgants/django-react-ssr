@@ -1,8 +1,8 @@
 import React from 'react';
-import Temp from './components/Temp';
+import App from './components/App';
 
 export default () => {
   return (
-    <Temp />
+    <App />
   )
 }

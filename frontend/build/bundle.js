@@ -96,6 +96,7 @@ var server = http.Server(app);
 app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
+	// res.send('hello')
 	res.end('React render server');
 });
 
