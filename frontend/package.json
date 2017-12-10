@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npm-run-all --parallel dev:*",
     "dev:server": "nodemon --watch build --exec \"node build/main-*\"",
-    "dev:client": "nodemon --watch public --exec \"node public/main-*\"",
+    "dev:client": "nodemon --watch dist --exec \"node dist/main-*\"",
     "dev:build-server": "webpack --config webpack.server.config.js --watch",
     "dev:build-client": "webpack --config webpack.client.config.js --watch"
   },
@@ -46,6 +46,7 @@
     "yargs": "^3.29.0"
   },
   "devDependencies": {
+    "clean-webpack-plugin": "^0.1.17",
     "react-hot-loader": "^3.1.3",
     "webpack-bundle-tracker": "^0.2.0",
     "webpack-dev-server": "^2.8.2"

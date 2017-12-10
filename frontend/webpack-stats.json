@@ -1,1 +1,1 @@
-{"status":"done","chunks":{"main":[{"name":"main-3583de2c3fcf00501624.js","path":"/Users/Logan/Development/projects/django-react-ssr/frontend/public/main-3583de2c3fcf00501624.js"}]}}
+{"status":"done","publicPath":"/static/public/","chunks":{"main":[{"name":"main-31e2641b9cd666100086.js","publicPath":"/static/public/main-31e2641b9cd666100086.js","path":"/Users/Logan/Development/projects/django-react-ssr/frontend/dist/main-31e2641b9cd666100086.js"}]}}

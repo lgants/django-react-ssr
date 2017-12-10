@@ -9,7 +9,8 @@ const config = {
   // Tell webpack where to put the output file that is generated
   output: {
     filename: "[name]-[hash].js",
-    path: path.resolve(__dirname, 'public/')
+    publicPath: '/static/public/',
+    path: path.resolve(__dirname, 'dist/')
   }
 };
 
