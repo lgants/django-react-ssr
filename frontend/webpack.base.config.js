@@ -4,11 +4,6 @@ var BundleTracker = require('webpack-bundle-tracker');
 var autoprefixer = require('autoprefixer');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 
-let pathsToClean = [
-  'build',
-  'dist'
-]
-
 module.exports = {
   // Tell webpack to run babel on every file it runs through
   module: {
@@ -40,7 +35,19 @@ module.exports = {
     ]
   },
   plugins: [
-    new BundleTracker({filename: './webpack-stats.json'}),
-    new CleanWebpackPlugin(pathsToClean)
+    new BundleTracker(
+      {
+        filename: './webpack-stats.json'
+      }
+    ),
+    new CleanWebpackPlugin(
+      [
+        'build/*.js',
+        'dist/*.js'
+      ],
+      {
+        watch: true
+      }
+    )
   ]
 };
