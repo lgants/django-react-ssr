@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var BundleTracker = require('webpack-bundle-tracker');
 var autoprefixer = require('autoprefixer');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
+// const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   // Tell webpack to run babel on every file it runs through
@@ -21,17 +22,25 @@ module.exports = {
         }
       },
       {
-        test: /(\.css$)/,
-        loaders: [
+        test: /\.(png|gif)$/,
+        loader: 'url-loader?limit=1024&name=[name]-[hash:8].[ext]!image-webpack-loader'
+      },
+      {
+        test: /\.jpg$/,
+        loader: 'file-loader'
+      },
+      {
+        test: /\.less$/,
+        use: [
           'style-loader',
           'css-loader',
-          'postcss-loader'
+          'less-loader'
         ]
       },
       {
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-        loader: 'url-loader?limit=100000'
-      },
+        test: /\.(ttf|eot|svg|woff2?)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'file-loader'
+      }
     ]
   },
   plugins: [

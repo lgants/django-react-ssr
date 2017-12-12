@@ -2440,6 +2440,8 @@ var _Temp2 = _interopRequireDefault(_Temp);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import 'semantic-ui-css/semantic.css';
+
 exports.default = function () {
   return _react2.default.createElement(
     'div',
