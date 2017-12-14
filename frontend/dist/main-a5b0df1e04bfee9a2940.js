@@ -57,7 +57,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/static";
+/******/ 	__webpack_require__.p = "/static/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 376);
@@ -21815,6 +21815,11 @@ exports.default = function () {
       'h3',
       null,
       'hello'
+    ),
+    _react2.default.createElement(
+      'h3',
+      null,
+      'hola'
     ),
     _react2.default.createElement(_Temp2.default, null)
   );

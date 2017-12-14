@@ -2451,6 +2451,11 @@ exports.default = function () {
       null,
       'hello'
     ),
+    _react2.default.createElement(
+      'h3',
+      null,
+      'hola'
+    ),
     _react2.default.createElement(_Temp2.default, null)
   );
 };
