@@ -1,11 +1,11 @@
 *.egg-info
 *.pot
-*.py[co]
+*.py[cod]
 .env
 .tox/
 MANIFEST
 dist/
-__pycache__/
+__pycache__
 docs/_build/
 docs/locale/
 node_modules/
