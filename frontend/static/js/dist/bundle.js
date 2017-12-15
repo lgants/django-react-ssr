@@ -593,9 +593,24 @@ if (typeof window !== 'undefined') {
   content = _react2.default.createElement(_App2.default, null);
 }
 
-exports.default = function () {
+var _default = function _default() {
   return content;
 };
+
+exports.default = _default;
+;
+
+var _temp = function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+
+  __REACT_HOT_LOADER__.register(content, 'content', '/Users/Logan/Development/projects/django-react-ssr/frontend/src/client/index.js');
+
+  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Logan/Development/projects/django-react-ssr/frontend/src/client/index.js');
+}();
+
+;
 
 /***/ }),
 /* 8 */
@@ -2442,7 +2457,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // import 'semantic-ui-css/semantic.css';
 
-exports.default = function () {
+var _default = function _default() {
   return _react2.default.createElement(
     'div',
     null,
@@ -2459,6 +2474,19 @@ exports.default = function () {
     _react2.default.createElement(_Temp2.default, null)
   );
 };
+
+exports.default = _default;
+;
+
+var _temp = function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+
+  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Logan/Development/projects/django-react-ssr/frontend/src/client/components/App.js');
+}();
+
+;
 
 /***/ }),
 /* 13 */
@@ -2479,7 +2507,7 @@ var _semanticUiReact = __webpack_require__(382);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function () {
+var _default = function _default() {
   return _react2.default.createElement(
     'div',
     null,
@@ -2502,6 +2530,19 @@ exports.default = function () {
     )
   );
 };
+
+exports.default = _default;
+;
+
+var _temp = function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+
+  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Logan/Development/projects/django-react-ssr/frontend/src/client/components/Temp.js');
+}();
+
+;
 
 /***/ }),
 /* 14 */,

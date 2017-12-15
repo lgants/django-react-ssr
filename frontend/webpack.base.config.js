@@ -1,5 +1,4 @@
 var path = require('path');
-var webpack = require('webpack');
 var BundleTracker = require('webpack-bundle-tracker');
 var autoprefixer = require('autoprefixer');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
