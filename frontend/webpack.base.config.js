@@ -48,6 +48,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new BundleTracker(
       {
         filename: './webpack-stats.json'
