@@ -59,7 +59,7 @@
 /******/
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "546c40b8126a4cae942b"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "72707bcd9c316ea81eeb"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -22475,11 +22475,6 @@ exports.default = function () {
       'h3',
       null,
       'hello'
-    ),
-    _react2.default.createElement(
-      'h3',
-      null,
-      'hola'
     ),
     _react2.default.createElement(_Temp2.default, null)
   );
