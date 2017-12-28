@@ -11,7 +11,6 @@ new WebpackDevServer(webpack(config), {
   if (err) {
     console.log(err)
   }
-  console.log(config.output.publicPath)
-
+  
   console.log('Listening at 0.0.0.0:3000')
 })
