@@ -59,7 +59,7 @@
 /******/
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "72707bcd9c316ea81eeb"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "38a9bd3d89c9b42ebe7c"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -22476,6 +22476,11 @@ exports.default = function () {
       null,
       'hello'
     ),
+    _react2.default.createElement(
+      'p3',
+      null,
+      'dddddd'
+    ),
     _react2.default.createElement(_Temp2.default, null)
   );
 };
@@ -22512,6 +22517,11 @@ exports.default = function () {
       'p',
       null,
       'hola'
+    ),
+    _react2.default.createElement(
+      'p',
+      null,
+      'solo bro'
     ),
     _react2.default.createElement(
       _semanticUiReact.Button,
