@@ -36,11 +36,11 @@ DEFAULT_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'livereload',
 ]
 
 THIRD_PARTY_APPS = [
     'react',
-    'livereload',
     'webpack_loader',
 ]
 
