@@ -17,7 +17,7 @@ const config = {
   plugins: [
     new CleanWebpackPlugin(
       [
-        'dist/*.js'
+        'dist/*.*'
       ],
       {
         watch: true

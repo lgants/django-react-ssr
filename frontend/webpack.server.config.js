@@ -17,7 +17,7 @@ const config = {
   plugins: [
     new CleanWebpackPlugin(
       [
-        'build/*.js',
+        'build/*.*',
       ],
       {
         watch: true
