@@ -40,6 +40,7 @@ DEFAULT_APPS = [
 
 THIRD_PARTY_APPS = [
     'react',
+    'livereload',
     'webpack_loader',
 ]
 
@@ -47,7 +48,7 @@ LOCAL_APPS = [
     'app',
 ]
 
-INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+INSTALLED_APPS = THIRD_PARTY_APPS + DEFAULT_APPS + LOCAL_APPS
 
 REACT = {
 	'RENDER': True,
