@@ -6,7 +6,7 @@ export default () => {
   return (
     <div>
       <h3>hello</h3>
-      <p3>dddd</p3>
+      <p3>hola senor!!!!</p3>
       <Temp />
     </div>
   )

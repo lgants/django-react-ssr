@@ -26,6 +26,16 @@ exports.default = function () {
   return _react2.default.createElement(
     'div',
     null,
+    _react2.default.createElement(
+      'h3',
+      null,
+      'hello'
+    ),
+    _react2.default.createElement(
+      'p3',
+      null,
+      'hola senor!!!!'
+    ),
     _react2.default.createElement(_Temp2.default, null)
   );
 };
