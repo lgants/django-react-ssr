@@ -6,9 +6,14 @@
   "scripts": {
     "dev": "npm-run-all --parallel dev:*",
     "dev:server": "nodemon --watch build --exec \"node build/main-*\"",
-    "dev:client": "nodemon --watch dist --exec \"node dist/main-*\"",
-    "dev:build-server": "webpack --config webpack.server.config.js --watch",
-    "dev:build-client": "webpack --config webpack.client.config.js --watch"
+    "dev:client": "nodemon --watch dist --exec \"node ../backend/app/static/js/main-*\"",
+    "dev:build-server": "webpack --config webpack.server.dev.config.js --watch",
+    "dev:build-client": "webpack --config webpack.client.dev.config.js --watch",
+    "prod": "npm-run-all --parallel prod:*",
+    "prod:server": "--exec \"node build/main-*\"",
+    "prod:client": "--exec \"node ../backend/app/static/js/main-*\"",
+    "prod:build-server": "webpack --config webpack.server.prod.config.js",
+    "prod:build-client": "webpack --config webpack.client.prod.config.js"
   },
   "author": "",
   "license": "ISC",

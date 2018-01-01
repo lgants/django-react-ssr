@@ -5,15 +5,20 @@ var autoprefixer = require('autoprefixer');
 // const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
+  target: 'node',
+  entry: './src/server/index.js',
+  output: {
+    filename: "[name]-[hash].js",
+    path: path.resolve(__dirname, 'build/')
+  },
   // Tell webpack to run babel on every file it runs through
   resolve: {
     extensions: ['.js', '.jsx', '.json']
   },
-
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js)$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         options: {
@@ -23,26 +28,6 @@ module.exports = {
             ['env', { targets: { browsers: ['last 2 versions'] } }]
           ]
         }
-      },
-      {
-        test: /\.(png|gif)$/,
-        loader: 'url-loader?limit=1024&name=[name]-[hash:8].[ext]!image-webpack-loader'
-      },
-      {
-        test: /\.jpg$/,
-        loader: 'file-loader'
-      },
-      {
-        test: /\.less$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'less-loader'
-        ]
-      },
-      {
-        test: /\.(ttf|eot|svg|woff2?)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file-loader'
       }
     ]
   },
@@ -50,7 +35,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new BundleTracker(
       {
-        filename: './webpack-stats.json'
+        filename: './webpack-stats.server.json'
       }
     )
   ]
