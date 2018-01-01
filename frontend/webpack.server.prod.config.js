@@ -1,8 +1,8 @@
-const path = require('path');
-const merge = require('webpack-merge');
-const baseConfig = require('./webpack.server.base.config.js');
-const webpackNodeExternals = require('webpack-node-externals');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+var path = require('path');
+var merge = require('webpack-merge');
+var webpack = require('webpack');
+var baseConfig = require('./webpack.server.base.config.js');
+var webpackNodeExternals = require('webpack-node-externals');
 
 const config = {
   externals: [
@@ -11,7 +11,6 @@ const config = {
   plugins: [
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       mangle: true,
       compress: {

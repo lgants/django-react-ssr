@@ -1,8 +1,8 @@
 var path = require('path');
 var webpack = require('webpack');
-var BundleTracker = require('webpack-bundle-tracker');
 var autoprefixer = require('autoprefixer');
-// const ExtractTextPlugin = require("extract-text-webpack-plugin");
+var BundleTracker = require('webpack-bundle-tracker');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   target: 'node',
@@ -36,6 +36,12 @@ module.exports = {
     new BundleTracker(
       {
         filename: './webpack-stats.server.json'
+      }
+    ),
+    new CleanWebpackPlugin(
+      ['build/*.*',],
+      {
+        watch: true
       }
     )
   ]

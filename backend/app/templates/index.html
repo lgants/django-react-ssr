@@ -1,12 +1,8 @@
-{% load static %}
 {% load render_bundle from webpack_loader %}
-
 
 <html>
   <head>
   	<title>Python + React example</title>
-  	<!-- <link rel="stylesheet" href="static/css/bootstrap.css">
-  	<link rel="stylesheet" href="static/css/app.css"> -->
   </head>
   <body>
     <p>{{test}}</p>
@@ -15,6 +11,5 @@
       <div id="root">{{ rendered|safe }}</div>
   	</div>
     {% render_bundle 'main' 'js' %}
-    <script src="{% static 'script.js' %}"></script>
   </body>
 </html>

@@ -1,20 +1,12 @@
-const path = require('path');
-const merge = require('webpack-merge');
-const baseConfig = require('./webpack.client.base.config.js');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const webpack = require('webpack');
+var path = require('path');
+var merge = require('webpack-merge');
+var webpack = require('webpack');
+var baseConfig = require('./webpack.client.base.config.js');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const config = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new CleanWebpackPlugin([
-      'backend/app/static/js/main-*.*', 'backend/app/static/js/*.hot-update.*'
-    ],
-      {
-        root: path.resolve(__dirname, '..'),
-        watch: true
-      }
-    )
   ]
 };
 

@@ -1,23 +1,12 @@
-const path = require('path');
-const merge = require('webpack-merge');
-const baseConfig = require('./webpack.server.base.config.js');
-const webpackNodeExternals = require('webpack-node-externals');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+var path = require('path');
+var merge = require('webpack-merge');
+var baseConfig = require('./webpack.server.base.config.js');
+var webpackNodeExternals = require('webpack-node-externals');
 
 const config = {
   externals: [
     webpackNodeExternals()
   ],
-  plugins: [
-    new CleanWebpackPlugin(
-      [
-        'build/*.*',
-      ],
-      {
-        watch: true
-      }
-    )
-  ]
 };
 
 module.exports = merge(baseConfig, config);

@@ -1,8 +1,8 @@
-const path = require('path');
-const merge = require('webpack-merge');
-const baseConfig = require('./webpack.client.base.config.js');
-const webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+var path = require('path');
+var merge = require('webpack-merge');
+var webpack = require('webpack');
+var baseConfig = require('./webpack.client.base.config.js');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const config = {
   plugins: [
@@ -14,7 +14,6 @@ const config = {
     new ExtractTextPlugin("bundle.css", {allChunks: false}),
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       mangle: true,
       compress: {

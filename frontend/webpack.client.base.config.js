@@ -1,7 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var BundleTracker = require('webpack-bundle-tracker');
-var autoprefixer = require('autoprefixer');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: './src/client/index.js',
@@ -54,6 +54,14 @@ module.exports = {
     new BundleTracker(
       {
         filename: './webpack-stats.client.json'
+      }
+    ),
+    new CleanWebpackPlugin([
+      'backend/app/static/js/main-*.*', 'backend/app/static/js/*.hot-update.*'
+    ],
+      {
+        root: path.resolve(__dirname, '..'),
+        watch: true
       }
     )
   ]
