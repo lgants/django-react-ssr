@@ -5,11 +5,7 @@
   	<title>Python + React example</title>
   </head>
   <body>
-    <p>{{test}}</p>
-  	<div class="container">
-  		<h1>Python + React example</h1>
-      <div id="root">{{ rendered|safe }}</div>
-  	</div>
+    <div id="root">{{ rendered|safe }}</div>
     {% render_bundle 'main' 'js' %}
   </body>
 </html>
