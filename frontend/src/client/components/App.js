@@ -1,6 +1,6 @@
 import React from 'react';
 import Temp from './Temp';
-// import 'semantic-ui-css/semantic.css';
+import 'semantic-ui-css/semantic.css';
 
 export default () => {
   return (
