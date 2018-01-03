@@ -90,7 +90,7 @@ module.exports = {
     // for React Native Web.
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
     alias: {
-      
+
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
@@ -121,7 +121,7 @@ module.exports = {
             options: {
               formatter: eslintFormatter,
               eslintPath: require.resolve('eslint'),
-              
+
             },
             loader: require.resolve('eslint-loader'),
           },
@@ -149,22 +149,15 @@ module.exports = {
             include: paths.appSrc,
             loader: require.resolve('babel-loader'),
             options: {
-              
+
               compact: true,
             },
           },
           // The notation here is somewhat confusing.
           // "postcss" loader applies autoprefixer to our CSS.
           // "css" loader resolves paths in CSS and adds assets as dependencies.
-          // "style" loader normally turns CSS into JS modules injecting <style>,
-          // but unlike in development configuration, we do something different.
-          // `ExtractTextPlugin` first applies the "postcss" and "css" loaders
-          // (second argument), then grabs the result CSS and puts it into a
-          // separate file in our build process. This way we actually ship
-          // a single CSS file in production instead of JS code injecting <style>
-          // tags. If you use code splitting, however, any async bundles will still
-          // use the "style" loader inside the async code so CSS from them won't be
-          // in the main CSS file.
+          // "style" loader normally turns CSS into JS modules injecting <style>, but unlike in development configuration, we do something different.
+          // `ExtractTextPlugin` first applies the "postcss" and "css" loaders (second argument), then grabs the result CSS and puts it into a separate file in our build process. This way we actually ship a single CSS file in production instead of JS code injecting <style> tags. If you use code splitting, however, any async bundles will still use the "style" loader inside the async code so CSS from them won't be in the main CSS file.
           {
             test: /\.css$/,
             loader: ExtractTextPlugin.extract(
@@ -189,7 +182,6 @@ module.exports = {
                       loader: require.resolve('postcss-loader'),
                       options: {
                         // Necessary for external CSS imports to work
-                        // https://github.com/facebookincubator/create-react-app/issues/2677
                         ident: 'postcss',
                         plugins: () => [
                           require('postcss-flexbugs-fixes'),
@@ -214,14 +206,11 @@ module.exports = {
           },
           // "file" loader makes sure assets end up in the `build` folder.
           // When you `import` an asset, you get its filename.
-          // This loader doesn't use a "test" so it will catch all modules
-          // that fall through the other loaders.
+          // This loader doesn't use a "test" so it will catch all modules that fall through the other loaders.
           {
             loader: require.resolve('file-loader'),
-            // Exclude `js` files to keep "css" loader working as it injects
-            // it's runtime that would otherwise processed through "file" loader.
-            // Also exclude `html` and `json` extensions so they get processed
-            // by webpacks internal loaders.
+            // Exclude `js` files to keep "css" loader working as it injects it's runtime that would otherwise processed through "file" loader.
+            // Also exclude `html` and `json` extensions so they get processed by webpacks internal loaders.
             exclude: [/\.js$/, /\.html$/, /\.json$/],
             options: {
               name: 'static/media/[name].[hash:8].[ext]',
@@ -235,10 +224,8 @@ module.exports = {
   },
   plugins: [
     // Makes some environment variables available in index.html.
-    // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
-    // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    // In production, it will be an empty string unless you specify "homepage"
-    // in `package.json`, in which case it will be the pathname of that URL.
+    // The public URL is available as %PUBLIC_URL% in index.html, e.g.: <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    // In production, it will be an empty string unless you specify "homepage" in `package.json`, in which case it will be the pathname of that URL.
     new InterpolateHtmlPlugin(env.raw),
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
@@ -257,8 +244,7 @@ module.exports = {
         minifyURLs: true,
       },
     }),
-    // Makes some environment variables available to the JS code, for example:
-    // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
+    // Makes some environment variables available to the JS code, for example: if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
     // It is absolutely essential that NODE_ENV was set to production here.
     // Otherwise React will be compiled in the very slow development mode.
     new webpack.DefinePlugin(env.stringified),
@@ -267,18 +253,14 @@ module.exports = {
       compress: {
         warnings: false,
         // Disabled because of an issue with Uglify breaking seemingly valid code:
-        // https://github.com/facebookincubator/create-react-app/issues/2376
-        // Pending further investigation:
-        // https://github.com/mishoo/UglifyJS2/issues/2011
         comparisons: false,
       },
       mangle: {
         safari10: true,
-      },        
+      },
       output: {
         comments: false,
         // Turned on because emoji and regex is not minified properly using default
-        // https://github.com/facebookincubator/create-react-app/issues/2488
         ascii_only: true,
       },
       sourceMap: shouldUseSourceMap,
@@ -296,10 +278,8 @@ module.exports = {
     // Generate a service worker script that will precache, and keep up to date,
     // the HTML & assets that are part of the Webpack build.
     new SWPrecacheWebpackPlugin({
-      // By default, a cache-busting query parameter is appended to requests
-      // used to populate the caches, to ensure the responses are fresh.
-      // If a URL is already hashed by Webpack, then there is no concern
-      // about it being stale, and the cache-busting can be skipped.
+      // By default, a cache-busting query parameter is appended to requests used to populate the caches, to ensure the responses are fresh.
+      // If a URL is already hashed by Webpack, then there is no concern about it being stale, and the cache-busting can be skipped.
       dontCacheBustUrlsMatching: /\.\w{8}\./,
       filename: 'service-worker.js',
       logger(message) {
@@ -309,7 +289,6 @@ module.exports = {
         }
         if (message.indexOf('Skipping static resource') === 0) {
           // This message obscures real errors so we ignore it.
-          // https://github.com/facebookincubator/create-react-app/issues/2612
           return;
         }
         console.log(message);
@@ -318,15 +297,12 @@ module.exports = {
       // For unknown URLs, fallback to the index page
       navigateFallback: publicUrl + '/index.html',
       // Ignores URLs starting from /__ (useful for Firebase):
-      // https://github.com/facebookincubator/create-react-app/issues/2237#issuecomment-302693219
       navigateFallbackWhitelist: [/^(?!\/__).*/],
       // Don't precache sourcemaps (they're large) and build asset manifest:
       staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
     }),
     // Moment.js is an extremely popular library that bundles large locale files
-    // by default due to how Webpack interprets its code. This is a practical
-    // solution that requires the user to opt into importing specific locales.
-    // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
+    // by default due to how Webpack interprets its code. This is a practical solution that requires the user to opt into importing specific locales.
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
   ],
