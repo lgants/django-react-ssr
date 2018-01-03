@@ -2,6 +2,8 @@ var path = require('path');
 var webpack = require('webpack');
 var BundleTracker = require('webpack-bundle-tracker');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var RewriteImportPlugin = require("less-plugin-rewrite-import");
 
 module.exports = {
   entry: './src/client/index.js',
@@ -37,14 +39,7 @@ module.exports = {
         loader: 'file-loader'
       },
       {
-       test: /\.css$/,
-       use: [
-         'style-loader',
-         'css-loader'
-       ]
-      },
-      {
-        test: /\.less$/,
+        test: /\.less/,
         use: [
           'style-loader',
           'css-loader',
@@ -52,12 +47,31 @@ module.exports = {
         ]
       },
       {
-        test: /\.(ttf|eot|svg|woff2?)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file-loader'
-      }
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      },
+      {
+        test: /\.jpe?g$|\.gif$|\.png$|\.ttf$|\.eot$|\.svg$/,
+        use: 'file-loader?name=[name].[ext]?[hash]'
+      },
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'url-loader?limit=10000&mimetype=application/fontwoff'
+      },
     ]
   },
   plugins: [
+    new RewriteImportPlugin({
+      paths: {
+        "../../theme.config": path.resolve(__dirname, '/src/semantic-ui/theme.config'),
+      }
+    }),
+    new ExtractTextPlugin({
+      filename: '[name].[contenthash].css',
+    }),
     new BundleTracker(
       {
         filename: './webpack-stats.client.json'
