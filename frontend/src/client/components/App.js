@@ -1,6 +1,6 @@
 import React from 'react';
 import Temp from './Temp';
-import "semantic-ui-less/semantic.less";
+// import "semantic-ui-less/semantic.less";
 
 export default () => {
   return (
