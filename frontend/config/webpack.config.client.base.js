@@ -9,7 +9,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
   entry: '../src/client/index.js',
   output: {
-    filename: '[name]-[hash].js',
+    // filename: '[name]-[hash].js',
     publicPath: '/static/js/',
     path: path.resolve(__dirname, '../../backend/app/static/js/')
   },
@@ -30,7 +30,7 @@ module.exports = {
       'backend/app/static/js/main-*.*', 'backend/app/static/js/*.hot-update.*'
     ],
       {
-        root: path.resolve(__dirname, '..'),
+        root: path.resolve(__dirname, '..', '..'),
         watch: true
       }
     )
