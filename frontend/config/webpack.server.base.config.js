@@ -9,7 +9,7 @@ module.exports = {
   entry: './src/server/index.js',
   output: {
     filename: "[name]-[hash].js",
-    path: path.resolve(__dirname, 'build/')
+    path: path.resolve(__dirname, '../build/')
   },
   // Tell webpack to run babel on every file it runs through
   resolve: {
@@ -33,11 +33,10 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new BundleTracker(
-      {
-        filename: './webpack-stats.server.json'
-      }
-    ),
+    new BundleTracker({
+      path: path.resolve(__dirname),
+      filename: './webpack-stats.server.json'
+    }),
     new CleanWebpackPlugin(
       ['build/*.*',],
       {

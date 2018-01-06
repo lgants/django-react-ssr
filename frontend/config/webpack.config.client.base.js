@@ -10,8 +10,8 @@ module.exports = {
   entry: '../src/client/index.js',
   output: {
     // filename: '[name]-[hash].js',
-    publicPath: '/static/js/',
-    path: path.resolve(__dirname, '../../backend/app/static/js/')
+    // publicPath: '/static/js/',
+    // path: path.resolve(__dirname, '../../backend/app/static/js/')
   },
   resolve: {
     // These are the reasonable defaults supported by the Node ecosystem.
@@ -27,7 +27,7 @@ module.exports = {
       }
     ),
     new CleanWebpackPlugin([
-      'backend/app/static/js/main-*.*', 'backend/app/static/js/*.hot-update.*'
+      'backend/app/static/build/*'
     ],
       {
         root: path.resolve(__dirname, '..', '..'),
