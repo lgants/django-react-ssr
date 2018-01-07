@@ -6,7 +6,7 @@ var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   target: 'node',
-  entry: './src/server/index.js',
+  entry: './server/index.js',
   output: {
     filename: "[name]-[hash].js",
     path: path.resolve(__dirname, '../build/')

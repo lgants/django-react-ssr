@@ -10,7 +10,7 @@ module.exports = {
   entry: '../src/client/index.js',
   output: {
     // filename: '[name]-[hash].js',
-    // publicPath: '/static/js/',
+    publicPath: '/static/',
     // path: path.resolve(__dirname, '../../backend/app/static/js/')
   },
   resolve: {
@@ -21,11 +21,10 @@ module.exports = {
     // new ExtractTextPlugin({
     //   filename: '[name].[contenthash].css',
     // }),
-    new BundleTracker(
-      {
-        filename: './webpack-stats.client.json'
-      }
-    ),
+    new BundleTracker({
+      path: path.resolve(__dirname),
+      filename: './webpack-stats.client.json'
+    }),
     new CleanWebpackPlugin([
       'backend/app/static/build/*'
     ],

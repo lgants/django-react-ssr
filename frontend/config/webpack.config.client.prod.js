@@ -6,7 +6,7 @@ const webpack = require('webpack');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+// const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
@@ -60,14 +60,14 @@ const config = {
   entry: [require.resolve('./polyfills'), paths.appIndexJs],
   output: {
     // The build folder.
-    path: paths.appBuild,
+    // path: paths.appBuild,
+    path: path.resolve(__dirname, '../../backend/app/static/build/'),
     // Generated JS file names (with nested folders).
     // There will be one main bundle, and one file per asynchronous chunk.
-    // We don't currently advertise code splitting but Webpack supports it.
     filename: '[name].[chunkhash:8].js',
     chunkFilename: '[name].[chunkhash:8].chunk.js',
     // We inferred the "public path" (such as / or /my-project) from homepage.
-    publicPath: publicPath,
+    // publicPath: publicPath,
     // Point sourcemap entries to original disk location (format as URL on Windows)
     devtoolModuleFilenameTemplate: info =>
       path
@@ -76,24 +76,19 @@ const config = {
   },
   resolve: {
     // This allows you to set a fallback for where Webpack should look for modules.
-    // We placed these paths second because we want `node_modules` to "win"
-    // if there are any conflicts. This matches Node resolution mechanism.
-    // https://github.com/facebookincubator/create-react-app/issues/253
+    // We placed these paths second because we want `node_modules` to "win" if there are any conflicts. This matches Node resolution mechanism.
     modules: ['node_modules', paths.appNodeModules].concat(
       // It is guaranteed to exist because we tweak it in `env.js`
       process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
     ),
     alias: {
-
       // Support React Native Web
-      // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
       // This often causes confusion because we only process files within src/ with babel.
-      // To fix this, we prevent you from importing files out of src/ -- if you'd like to,
-      // please link the files into your node_modules/ and let module-resolution kick in.
+      // To fix this, we prevent you from importing files out of src/ -- if you'd like to, please link the files into your node_modules/ and let module-resolution kick in.
       // Make sure your source files are compiled, as they will not be processed in any way.
       new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
     ],
@@ -102,7 +97,6 @@ const config = {
     strictExportPresence: true,
     rules: [
       // TODO: Disable require.ensure as it's not a standard language feature.
-      // We are waiting for https://github.com/facebookincubator/create-react-app/issues/2176.
       // { parser: { requireEnsure: false } },
 
       // First, run the linter.
@@ -217,7 +211,7 @@ const config = {
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.: <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     // In production, it will be an empty string unless you specify "homepage" in `package.json`, in which case it will be the pathname of that URL.
-    new InterpolateHtmlPlugin(env.raw),
+    // new InterpolateHtmlPlugin(env.raw),
     // Generates an `index.html` file with the <script> injected.
     // new HtmlWebpackPlugin({
     //   inject: true,
@@ -243,7 +237,6 @@ const config = {
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
-        // Disabled because of an issue with Uglify breaking seemingly valid code:
         comparisons: false,
       },
       mangle: {
@@ -260,8 +253,7 @@ const config = {
     new ExtractTextPlugin({
       filename: cssFilename,
     }),
-    // Generate a manifest file which contains a mapping of all asset filenames
-    // to their corresponding output file so that tools can pick it up without having to parse `index.html`.
+    // Generate a manifest file which contains a mapping of all asset filenames to their corresponding output file so that tools can pick it up without having to parse `index.html`.
     new ManifestPlugin({
       fileName: 'asset-manifest.json',
     }),
@@ -290,8 +282,7 @@ const config = {
       // Don't precache sourcemaps (they're large) and build asset manifest:
       staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
     }),
-    // Moment.js is an extremely popular library that bundles large locale files
-    // by default due to how Webpack interprets its code. This is a practical solution that requires the user to opt into importing specific locales.
+    // Moment.js is an extremely popular library that bundles large locale files by default due to how Webpack interprets its code. This is a practical solution that requires the user to opt into importing specific locales.
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
   ],
