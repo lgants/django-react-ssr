@@ -9,7 +9,7 @@ import os
 
 def index(request):
     rendered = render_component(
-        os.path.join(os.getcwd(), '..', 'frontend', 'src', 'client', 'index.js'),
+        os.path.join(os.getcwd(), '..', 'frontend', 'src', 'index.js'),
         {
             'url': '/comment/',
         },

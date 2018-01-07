@@ -146,14 +146,14 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, '..', 'frontend', 'dist'),
+    os.path.join(BASE_DIR, 'assets'),
 )
 
 WEBPACK_LOADER = {
     'DEFAULT': {
         'CACHE': not DEBUG,
-        'BUNDLE_DIR_NAME': 'dist/', # must end with slash
-        'STATS_FILE': os.path.join(BASE_DIR, '..', 'config', 'frontend', 'webpack-stats.client.json'),
+        'BUNDLE_DIR_NAME': 'static/build/', # must end with slash
+        'STATS_FILE': os.path.join(BASE_DIR, '..', 'frontend', 'config', 'webpack-stats.client.json'),
         'POLL_INTERVAL': 0.1,
         'TIMEOUT': None,
         'IGNORE': ['.+\.hot-update.js', '.+\.map']

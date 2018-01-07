@@ -7,10 +7,10 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 // const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: '../src/client/index.js',
+  entry: '../src/index.js',
   output: {
     // filename: '[name]-[hash].js',
-    publicPath: '/static/',
+    publicPath: '/static/build/',
     // path: path.resolve(__dirname, '../../backend/app/static/js/')
   },
   resolve: {

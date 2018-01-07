@@ -1,2 +1,2 @@
 django-livereload-server==0.2.3
--e git+https://github.com/lgants/python-livereload.git#egg=livereload
+livereload==2.5.1
