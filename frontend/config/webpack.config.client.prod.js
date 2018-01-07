@@ -61,7 +61,6 @@ const config = {
   output: {
     // The build folder.
     // path: paths.appBuild,
-    path: path.resolve(__dirname, '../../backend/app/static/build/'),
     // Generated JS file names (with nested folders).
     // There will be one main bundle, and one file per asynchronous chunk.
     filename: '[name].[chunkhash:8].js',

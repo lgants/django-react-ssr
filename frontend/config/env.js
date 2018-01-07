@@ -8,11 +8,11 @@ const paths = require('./paths');
 delete require.cache[require.resolve('./paths')];
 
 const NODE_ENV = process.env.NODE_ENV;
-if (!NODE_ENV) {
-  throw new Error(
-    'The NODE_ENV environment variable is required but was not specified.'
-  );
-}
+// if (!NODE_ENV) {
+//   throw new Error(
+//     'The NODE_ENV environment variable is required but was not specified.'
+//   );
+// }
 
 // https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use
 var dotenvFiles = [
@@ -82,6 +82,7 @@ function getClientEnvironment(publicUrl) {
       env[key] = JSON.stringify(raw[key]);
       return env;
     }, {}),
+    'process.env.BROWSER': true
   };
 
   return { raw, stringified };

@@ -11,7 +11,8 @@ module.exports = {
   output: {
     // filename: '[name]-[hash].js',
     publicPath: '/static/build/',
-    // path: path.resolve(__dirname, '../../backend/app/static/js/')
+    // The build folder.
+    path: path.resolve(__dirname, '../../backend/app/static/build/')
   },
   resolve: {
     // These are the reasonable defaults supported by the Node ecosystem.
