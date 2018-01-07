@@ -1,7 +1,7 @@
 var path = require('path');
 var merge = require('webpack-merge');
 var webpack = require('webpack');
-var baseConfig = require('./webpack.server.base.config.js');
+var baseConfig = require('./webpack.config.server.base.js');
 var webpackNodeExternals = require('webpack-node-externals');
 
 const config = {
