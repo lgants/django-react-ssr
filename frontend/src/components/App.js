@@ -5,8 +5,7 @@ import Temp from './Temp';
 export default () => {
   return (
     <div>
-      <h3>hello</h3>
-      <p3>hola senor!!!!</p3>
+      <h3>Why you no work?</h3>
       <Temp />
     </div>
   )

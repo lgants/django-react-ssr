@@ -5,28 +5,37 @@ import App from './components/App';
 
 let content;
 
-if (typeof window !== 'undefined') {
+console.log(false && typeof window !== 'undefined')
+
+if (false && typeof window !== 'undefined') {
+  console.log("yolobro")
   content = (
     ReactDOM.hydrate(
       <App />,
-      document.querySelector('#root')
+      document.getElementById('root')
     )
   )
   // registerServiceWorker();
 
 } else {
-  content = (<App />)
+  content = (
+    ReactDOM.render(
+    <App />,
+    document.getElementById('root')
+    )
+  )
 }
 
-if (process.env.NODE_ENV === 'development' && module.hot) {
-    module.hot.accept('./components/App', () => {
-        const NewApp = require('./components/App').default;
-
-        content = (
-          ReactDOM.render(<NewApp />, document.getElementById('root'))
-        );
-    });
-}
+// if (process.env.NODE_ENV === 'development' && module.hot) {
+//   console.log("hot")
+//     module.hot.accept('./components/App', () => {
+//         const NewApp = require('./components/App').default;
+//
+//         content = (
+//           ReactDOM.render(<NewApp />, document.getElementById('root'))
+//         );
+//     });
+// }
 
 export default() => {
   return content
