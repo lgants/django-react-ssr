@@ -8,7 +8,6 @@ let content;
 console.log(false && typeof window !== 'undefined')
 
 if (false && typeof window !== 'undefined') {
-  console.log("yolobro")
   content = (
     ReactDOM.hydrate(
       <App />,
